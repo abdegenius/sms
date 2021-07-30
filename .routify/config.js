@@ -15,5 +15,5 @@ module.exports = {
     "routify-plugin-frontmatter": {}
   },
   "hashScroll": true,
-  "started": "2021-07-29T18:55:15.113Z"
+  "started": "2021-07-30T10:42:09.466Z"
 }

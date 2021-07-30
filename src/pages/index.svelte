@@ -22,10 +22,10 @@
   let errors, success
 
   onMount(() => {
-    // const isLoggedIn = __deserialize('currentUser')
-    // if (isLoggedIn) {
-    //   return $goto('/app/dashboard')
-    // }
+    const isLoggedIn = __deserialize('currentUser')
+    if (isLoggedIn) {
+      return $goto('/app/dashboard')
+    }
   })
 
   const login = (e) => {

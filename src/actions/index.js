@@ -2,10 +2,10 @@ import axios from "axios";
 import Toast from "toastr";
 import { STORAGE_TOKEN } from "../store.js";
 export const api_url = {
-  BASE_URL: "http://localhost:3005",
+  BASE_URL: "https://payrole.herokuapp.com",
 };
 export const connector = axios.create({
-  baseURL: "http://localhost:3005",
+  baseURL: "https://payrole.herokuapp.com",
   timeout: 5000,
   transformResponse: axios.defaults.transformResponse.concat((data) => {
     return data;

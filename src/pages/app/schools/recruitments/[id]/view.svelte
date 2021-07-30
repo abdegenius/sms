@@ -152,6 +152,11 @@
       type: 'text',
       width: 200,
     },
+    {
+      data: 'action',
+      type: 'html',
+      width: 200,
+    },
   ];
   let colHeaders = [
     'School ID',
@@ -176,6 +181,7 @@
     'EC Remark',
     'VPE Approval',
     'Date',
+    'Action'
   ];
 
   onMount(() => {

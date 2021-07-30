@@ -35,17 +35,17 @@
   }
 
   onMount(() => {
-    const __tokenLocalStorage = __deserialize('token')
-    const __userType = __deserialize('currentUser')
+    // const __tokenLocalStorage = __deserialize('token')
+    // const __userType = __deserialize('currentUser')
 
-    //checkuser type
-    userType = __userType ? __userType.user.zone : null
-    if (!__tokenLocalStorage) {
-      return window.location.replace('/')
-    }
-    token = __tokenLocalStorage.token
-    STORAGE_TOKEN.set(token)
-    SET_USER_TYPE.set(__userType.user.zone)
+    // //checkuser type
+    // userType = __userType ? __userType.user.zone : null
+    // if (!__tokenLocalStorage) {
+    //   return window.location.replace('/')
+    // }
+    // token = __tokenLocalStorage.token
+    // STORAGE_TOKEN.set(token)
+    // SET_USER_TYPE.set(__userType.user.zone)
     
     getZones()
     __loadCheckers()
@@ -119,7 +119,7 @@
         <Column lg={8}>
           <Row>
             <Column></Column>
-            {#if userType === 'Central User'}
+            <!-- {#if userType === 'Central User'}
             <Column>
               <Dropdown
                 titleText="Select Zone"
@@ -127,12 +127,19 @@
                 items={zones}
                 label="Select Zone" />
             </Column>
-            {/if}
+            {/if} -->
+            <Column>
+              <Dropdown
+                titleText="Select Zone"
+                bind:selectedIndex={selectedZone}
+                items={zones}
+                label="Select Zone" />
+            </Column>
           </Row>
         </Column>
 
       </Row>
-      {#if selectedZone >= 0}
+      {#if selectedZone > 0}
         <slot />
       {:else}
         <style>

@@ -48896,10 +48896,10 @@ var routify_app = (function () {
     });
 
     const api_url = {
-      BASE_URL: "http://localhost:3005",
+      BASE_URL: "https://payrole.herokuapp.com",
     };
     const connector = axios$1.create({
-      baseURL: "http://localhost:3005",
+      baseURL: "https://payrole.herokuapp.com",
       timeout: 5000,
       transformResponse: axios$1.defaults.transformResponse.concat((data) => {
         return data;
@@ -49048,7 +49048,7 @@ var routify_app = (function () {
     		p: function update(ctx, dirty) {
     			const breadcrumbitem_changes = {};
 
-    			if (dirty & /*$$scope*/ 32) {
+    			if (dirty & /*$$scope*/ 16) {
     				breadcrumbitem_changes.$$scope = { dirty, ctx };
     			}
 
@@ -49107,9 +49107,9 @@ var routify_app = (function () {
     			span = element("span");
     			span.textContent = "Super User";
     			set_style(span, "font-size", "16px");
-    			add_location(span, file$1h, 115, 12, 2634);
+    			add_location(span, file$1h, 115, 12, 2664);
     			set_style(h3, "margin-bottom", "1.5rem");
-    			add_location(h3, file$1h, 113, 10, 2561);
+    			add_location(h3, file$1h, 113, 10, 2591);
     		},
     		m: function mount(target, anchor) {
     			mount_component(breadcrumb, target, anchor);
@@ -49122,7 +49122,7 @@ var routify_app = (function () {
     		p: function update(ctx, dirty) {
     			const breadcrumb_changes = {};
 
-    			if (dirty & /*$$scope*/ 32) {
+    			if (dirty & /*$$scope*/ 16) {
     				breadcrumb_changes.$$scope = { dirty, ctx };
     			}
 
@@ -49155,69 +49155,14 @@ var routify_app = (function () {
     	return block;
     }
 
-    // (122:12) {#if userType === 'Central User'}
-    function create_if_block_1$b(ctx) {
-    	let column;
-    	let current;
-
-    	column = new Column({
-    			props: {
-    				$$slots: { default: [create_default_slot_6$2] },
-    				$$scope: { ctx }
-    			},
-    			$$inline: true
-    		});
-
-    	const block = {
-    		c: function create() {
-    			create_component(column.$$.fragment);
-    		},
-    		m: function mount(target, anchor) {
-    			mount_component(column, target, anchor);
-    			current = true;
-    		},
-    		p: function update(ctx, dirty) {
-    			const column_changes = {};
-
-    			if (dirty & /*$$scope, zones, selectedZone*/ 37) {
-    				column_changes.$$scope = { dirty, ctx };
-    			}
-
-    			column.$set(column_changes);
-    		},
-    		i: function intro(local) {
-    			if (current) return;
-    			transition_in(column.$$.fragment, local);
-    			current = true;
-    		},
-    		o: function outro(local) {
-    			transition_out(column.$$.fragment, local);
-    			current = false;
-    		},
-    		d: function destroy(detaching) {
-    			destroy_component(column, detaching);
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
-    		id: create_if_block_1$b.name,
-    		type: "if",
-    		source: "(122:12) {#if userType === 'Central User'}",
-    		ctx
-    	});
-
-    	return block;
-    }
-
-    // (123:12) <Column>
+    // (131:12) <Column>
     function create_default_slot_6$2(ctx) {
     	let dropdown;
     	let updating_selectedIndex;
     	let current;
 
     	function dropdown_selectedIndex_binding(value) {
-    		/*dropdown_selectedIndex_binding*/ ctx[4].call(null, value);
+    		/*dropdown_selectedIndex_binding*/ ctx[3].call(null, value);
     	}
 
     	let dropdown_props = {
@@ -49226,8 +49171,8 @@ var routify_app = (function () {
     		label: "Select Zone"
     	};
 
-    	if (/*selectedZone*/ ctx[2] !== void 0) {
-    		dropdown_props.selectedIndex = /*selectedZone*/ ctx[2];
+    	if (/*selectedZone*/ ctx[1] !== void 0) {
+    		dropdown_props.selectedIndex = /*selectedZone*/ ctx[1];
     	}
 
     	dropdown = new Dropdown({ props: dropdown_props, $$inline: true });
@@ -49245,9 +49190,9 @@ var routify_app = (function () {
     			const dropdown_changes = {};
     			if (dirty & /*zones*/ 1) dropdown_changes.items = /*zones*/ ctx[0];
 
-    			if (!updating_selectedIndex && dirty & /*selectedZone*/ 4) {
+    			if (!updating_selectedIndex && dirty & /*selectedZone*/ 2) {
     				updating_selectedIndex = true;
-    				dropdown_changes.selectedIndex = /*selectedZone*/ ctx[2];
+    				dropdown_changes.selectedIndex = /*selectedZone*/ ctx[1];
     				add_flush_callback(() => updating_selectedIndex = false);
     			}
 
@@ -49271,7 +49216,7 @@ var routify_app = (function () {
     		block,
     		id: create_default_slot_6$2.name,
     		type: "slot",
-    		source: "(123:12) <Column>",
+    		source: "(131:12) <Column>",
     		ctx
     	});
 
@@ -49280,67 +49225,56 @@ var routify_app = (function () {
 
     // (120:10) <Row>
     function create_default_slot_5$2(ctx) {
-    	let column;
+    	let column0;
     	let t;
-    	let if_block_anchor;
+    	let column1;
     	let current;
-    	column = new Column({ $$inline: true });
-    	let if_block = /*userType*/ ctx[1] === "Central User" && create_if_block_1$b(ctx);
+    	column0 = new Column({ $$inline: true });
+
+    	column1 = new Column({
+    			props: {
+    				$$slots: { default: [create_default_slot_6$2] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
 
     	const block = {
     		c: function create() {
-    			create_component(column.$$.fragment);
+    			create_component(column0.$$.fragment);
     			t = space();
-    			if (if_block) if_block.c();
-    			if_block_anchor = empty();
+    			create_component(column1.$$.fragment);
     		},
     		m: function mount(target, anchor) {
-    			mount_component(column, target, anchor);
+    			mount_component(column0, target, anchor);
     			insert_dev(target, t, anchor);
-    			if (if_block) if_block.m(target, anchor);
-    			insert_dev(target, if_block_anchor, anchor);
+    			mount_component(column1, target, anchor);
     			current = true;
     		},
     		p: function update(ctx, dirty) {
-    			if (/*userType*/ ctx[1] === "Central User") {
-    				if (if_block) {
-    					if_block.p(ctx, dirty);
+    			const column1_changes = {};
 
-    					if (dirty & /*userType*/ 2) {
-    						transition_in(if_block, 1);
-    					}
-    				} else {
-    					if_block = create_if_block_1$b(ctx);
-    					if_block.c();
-    					transition_in(if_block, 1);
-    					if_block.m(if_block_anchor.parentNode, if_block_anchor);
-    				}
-    			} else if (if_block) {
-    				group_outros();
-
-    				transition_out(if_block, 1, 1, () => {
-    					if_block = null;
-    				});
-
-    				check_outros();
+    			if (dirty & /*$$scope, zones, selectedZone*/ 19) {
+    				column1_changes.$$scope = { dirty, ctx };
     			}
+
+    			column1.$set(column1_changes);
     		},
     		i: function intro(local) {
     			if (current) return;
-    			transition_in(column.$$.fragment, local);
-    			transition_in(if_block);
+    			transition_in(column0.$$.fragment, local);
+    			transition_in(column1.$$.fragment, local);
     			current = true;
     		},
     		o: function outro(local) {
-    			transition_out(column.$$.fragment, local);
-    			transition_out(if_block);
+    			transition_out(column0.$$.fragment, local);
+    			transition_out(column1.$$.fragment, local);
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			destroy_component(column, detaching);
+    			destroy_component(column0, detaching);
     			if (detaching) detach_dev(t);
-    			if (if_block) if_block.d(detaching);
-    			if (detaching) detach_dev(if_block_anchor);
+    			destroy_component(column1, detaching);
     		}
     	};
 
@@ -49379,7 +49313,7 @@ var routify_app = (function () {
     		p: function update(ctx, dirty) {
     			const row_changes = {};
 
-    			if (dirty & /*$$scope, zones, selectedZone, userType*/ 39) {
+    			if (dirty & /*$$scope, zones, selectedZone*/ 19) {
     				row_changes.$$scope = { dirty, ctx };
     			}
 
@@ -49450,14 +49384,14 @@ var routify_app = (function () {
     		p: function update(ctx, dirty) {
     			const column0_changes = {};
 
-    			if (dirty & /*$$scope*/ 32) {
+    			if (dirty & /*$$scope*/ 16) {
     				column0_changes.$$scope = { dirty, ctx };
     			}
 
     			column0.$set(column0_changes);
     			const column1_changes = {};
 
-    			if (dirty & /*$$scope, zones, selectedZone, userType*/ 39) {
+    			if (dirty & /*$$scope, zones, selectedZone*/ 19) {
     				column1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -49492,7 +49426,7 @@ var routify_app = (function () {
     	return block;
     }
 
-    // (137:6) {:else}
+    // (144:6) {:else}
     function create_else_block$f(ctx) {
     	let style;
     	let t1;
@@ -49516,16 +49450,16 @@ var routify_app = (function () {
     			br = element("br");
     			t4 = space();
     			img = element("img");
-    			add_location(style, file$1h, 137, 8, 3195);
-    			add_location(h4, file$1h, 147, 10, 3392);
-    			add_location(br, file$1h, 148, 10, 3444);
+    			add_location(style, file$1h, 144, 8, 3459);
+    			add_location(h4, file$1h, 154, 10, 3656);
+    			add_location(br, file$1h, 155, 10, 3708);
     			attr_dev(img, "class", "img-responsive");
     			if (img.src !== (img_src_value = "/img/select.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "select");
     			set_style(img, "height", "40vh");
-    			add_location(img, file$1h, 149, 10, 3461);
+    			add_location(img, file$1h, 156, 10, 3725);
     			attr_dev(div, "class", "select");
-    			add_location(div, file$1h, 146, 8, 3361);
+    			add_location(div, file$1h, 153, 8, 3625);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, style, anchor);
@@ -49551,18 +49485,18 @@ var routify_app = (function () {
     		block,
     		id: create_else_block$f.name,
     		type: "else",
-    		source: "(137:6) {:else}",
+    		source: "(144:6) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (135:6) {#if selectedZone >= 0}
+    // (142:6) {#if selectedZone > 0}
     function create_if_block$N(ctx) {
     	let current;
-    	const default_slot_template = /*$$slots*/ ctx[3].default;
-    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[5], null);
+    	const default_slot_template = /*$$slots*/ ctx[2].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[4], null);
 
     	const block = {
     		c: function create() {
@@ -49577,8 +49511,8 @@ var routify_app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			if (default_slot) {
-    				if (default_slot.p && dirty & /*$$scope*/ 32) {
-    					update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[5], dirty, null, null);
+    				if (default_slot.p && dirty & /*$$scope*/ 16) {
+    					update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[4], dirty, null, null);
     				}
     			}
     		},
@@ -49600,7 +49534,7 @@ var routify_app = (function () {
     		block,
     		id: create_if_block$N.name,
     		type: "if",
-    		source: "(135:6) {#if selectedZone >= 0}",
+    		source: "(142:6) {#if selectedZone > 0}",
     		ctx
     	});
 
@@ -49628,7 +49562,7 @@ var routify_app = (function () {
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
-    		if (/*selectedZone*/ ctx[2] >= 0) return 0;
+    		if (/*selectedZone*/ ctx[1] > 0) return 0;
     		return 1;
     	}
 
@@ -49652,7 +49586,7 @@ var routify_app = (function () {
     		p: function update(ctx, dirty) {
     			const row_changes = {};
 
-    			if (dirty & /*$$scope, zones, selectedZone, userType*/ 39) {
+    			if (dirty & /*$$scope, zones, selectedZone*/ 19) {
     				row_changes.$$scope = { dirty, ctx };
     			}
 
@@ -49735,7 +49669,7 @@ var routify_app = (function () {
     		p: function update(ctx, dirty) {
     			const grid_changes = {};
 
-    			if (dirty & /*$$scope, selectedZone, zones, userType*/ 39) {
+    			if (dirty & /*$$scope, selectedZone, zones*/ 19) {
     				grid_changes.$$scope = { dirty, ctx };
     			}
 
@@ -49798,7 +49732,7 @@ var routify_app = (function () {
     		p: function update(ctx, dirty) {
     			const content_changes = {};
 
-    			if (dirty & /*$$scope, selectedZone, zones, userType*/ 39) {
+    			if (dirty & /*$$scope, selectedZone, zones*/ 19) {
     				content_changes.$$scope = { dirty, ctx };
     			}
 
@@ -49861,7 +49795,7 @@ var routify_app = (function () {
     		p: function update(ctx, [dirty]) {
     			const theme_changes = {};
 
-    			if (dirty & /*$$scope, selectedZone, zones, userType*/ 39) {
+    			if (dirty & /*$$scope, selectedZone, zones*/ 19) {
     				theme_changes.$$scope = { dirty, ctx };
     			}
 
@@ -49903,20 +49837,18 @@ var routify_app = (function () {
     	: 0;
 
     	onMount(() => {
-    		const __tokenLocalStorage = __deserialize("token");
-    		const __userType = __deserialize("currentUser");
-
-    		//checkuser type
-    		$$invalidate(1, userType = __userType ? __userType.user.zone : null);
-
-    		if (!__tokenLocalStorage) {
-    			return window.location.replace("/");
-    		}
-
-    		token = __tokenLocalStorage.token;
-    		STORAGE_TOKEN.set(token);
-    		SET_USER_TYPE.set(__userType.user.zone);
+    		// const __tokenLocalStorage = __deserialize('token')
+    		// const __userType = __deserialize('currentUser')
+    		// //checkuser type
+    		// userType = __userType ? __userType.user.zone : null
+    		// if (!__tokenLocalStorage) {
+    		//   return window.location.replace('/')
+    		// }
+    		// token = __tokenLocalStorage.token
+    		// STORAGE_TOKEN.set(token)
+    		// SET_USER_TYPE.set(__userType.user.zone)
     		getZones();
+
     		__loadCheckers();
     	});
 
@@ -49943,7 +49875,7 @@ var routify_app = (function () {
 
     		if (checkZone) {
     			let zone_id = checkZone.zone;
-    			$$invalidate(2, selectedZone = zone_id);
+    			$$invalidate(1, selectedZone = zone_id);
     			SET_ZONE.set(selectedZone);
     		}
     	}
@@ -49972,11 +49904,11 @@ var routify_app = (function () {
 
     	function dropdown_selectedIndex_binding(value) {
     		selectedZone = value;
-    		$$invalidate(2, selectedZone);
+    		$$invalidate(1, selectedZone);
     	}
 
     	$$self.$$set = $$props => {
-    		if ("$$scope" in $$props) $$invalidate(5, $$scope = $$props.$$scope);
+    		if ("$$scope" in $$props) $$invalidate(4, $$scope = $$props.$$scope);
     	};
 
     	$$self.$capture_state = () => ({
@@ -50015,8 +49947,8 @@ var routify_app = (function () {
     		if ("token" in $$props) token = $$props.token;
     		if ("zone" in $$props) zone = $$props.zone;
     		if ("zones" in $$props) $$invalidate(0, zones = $$props.zones);
-    		if ("userType" in $$props) $$invalidate(1, userType = $$props.userType);
-    		if ("selectedZone" in $$props) $$invalidate(2, selectedZone = $$props.selectedZone);
+    		if ("userType" in $$props) userType = $$props.userType;
+    		if ("selectedZone" in $$props) $$invalidate(1, selectedZone = $$props.selectedZone);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -50024,23 +49956,16 @@ var routify_app = (function () {
     	}
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty & /*selectedZone*/ 4) ;
+    		if ($$self.$$.dirty & /*selectedZone*/ 2) ;
 
-    		if ($$self.$$.dirty & /*selectedZone*/ 4) {
+    		if ($$self.$$.dirty & /*selectedZone*/ 2) {
     			 if (selectedZone >= 0) {
     				changeZone(selectedZone);
     			}
     		}
     	};
 
-    	return [
-    		zones,
-    		userType,
-    		selectedZone,
-    		$$slots,
-    		dropdown_selectedIndex_binding,
-    		$$scope
-    	];
+    	return [zones, selectedZone, $$slots, dropdown_selectedIndex_binding, $$scope];
     }
 
     class Layout$1 extends SvelteComponentDev {
@@ -50056,7 +49981,7 @@ var routify_app = (function () {
     		});
     	}
     }
-    Layout$1.$compile = {"vars":[{"name":"url","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"goto","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"isActive","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"metatags","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"page","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"Content","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"Grid","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"Row","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"Column","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"Breadcrumb","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"BreadcrumbItem","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"Dropdown","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"Navigation","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"Theme","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"onMount","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"SET_ZONE","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"STORAGE_TOKEN","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"SET_USER_TYPE","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"ZONES","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"__serialize","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"__deserialize","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"token","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":true,"referenced":false,"writable":true,"referenced_from_script":true},{"name":"zone","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":true,"referenced_from_script":false},{"name":"zones","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":true,"referenced":true,"writable":true,"referenced_from_script":true},{"name":"userType","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":true,"referenced":true,"writable":true,"referenced_from_script":true},{"name":"selectedZone","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":true,"referenced":true,"writable":true,"referenced_from_script":true},{"name":"getZones","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"__loadCheckers","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"changeZone","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true}]};
+    Layout$1.$compile = {"vars":[{"name":"url","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"goto","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"isActive","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"metatags","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"page","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"Content","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"Grid","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"Row","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"Column","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"Breadcrumb","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"BreadcrumbItem","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"Dropdown","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"Navigation","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"Theme","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"onMount","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"SET_ZONE","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"STORAGE_TOKEN","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"SET_USER_TYPE","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"ZONES","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"__serialize","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"__deserialize","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"token","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":true,"referenced_from_script":false},{"name":"zone","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":true,"referenced_from_script":false},{"name":"zones","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":true,"referenced":true,"writable":true,"referenced_from_script":true},{"name":"userType","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":true,"referenced_from_script":false},{"name":"selectedZone","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":true,"referenced":true,"writable":true,"referenced_from_script":true},{"name":"getZones","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"__loadCheckers","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"changeZone","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true}]};
 
     var _layout$1 = /*#__PURE__*/Object.freeze({
         __proto__: null,
@@ -54325,7 +54250,7 @@ var routify_app = (function () {
     	let current_block_type_index;
     	let if_block;
     	let current;
-    	const if_block_creators = [create_if_block_1$c, create_else_block$j];
+    	const if_block_creators = [create_if_block_1$b, create_else_block$j];
     	const if_blocks = [];
 
     	function select_block_type_1(ctx, dirty) {
@@ -54612,7 +54537,7 @@ var routify_app = (function () {
     }
 
     // (80:4) {#if isLoading}
-    function create_if_block_1$c(ctx) {
+    function create_if_block_1$b(ctx) {
     	let loading;
     	let current;
 
@@ -54646,7 +54571,7 @@ var routify_app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$c.name,
+    		id: create_if_block_1$b.name,
     		type: "if",
     		source: "(80:4) {#if isLoading}",
     		ctx
@@ -57043,7 +56968,7 @@ var routify_app = (function () {
     const { console: console_1$8 } = globals;
     const file$1p = "src/pages/app/schools/recruitments/[id]/view.svelte";
 
-    // (272:4) <Button type="button" id="export-file">
+    // (278:4) <Button type="button" id="export-file">
     function create_default_slot$e(ctx) {
     	let t;
 
@@ -57063,14 +56988,14 @@ var routify_app = (function () {
     		block,
     		id: create_default_slot$e.name,
     		type: "slot",
-    		source: "(272:4) <Button type=\\\"button\\\" id=\\\"export-file\\\">",
+    		source: "(278:4) <Button type=\\\"button\\\" id=\\\"export-file\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (283:6) {#if recruitments}
+    // (289:6) {#if recruitments}
     function create_if_block$U(ctx) {
     	let handsontable;
     	let current;
@@ -57115,7 +57040,7 @@ var routify_app = (function () {
     		block,
     		id: create_if_block$U.name,
     		type: "if",
-    		source: "(283:6) {#if recruitments}",
+    		source: "(289:6) {#if recruitments}",
     		ctx
     	});
 
@@ -57171,18 +57096,18 @@ var routify_app = (function () {
     			div1 = element("div");
     			if (if_block) if_block.c();
     			document.title = "School";
-    			add_location(style, file$1p, 226, 2, 3886);
+    			add_location(style, file$1p, 232, 2, 3972);
     			attr_dev(p, "class", "text-header");
     			set_style(p, "margin-top", "10px");
-    			add_location(p, file$1p, 277, 6, 4739);
+    			add_location(p, file$1p, 283, 6, 4825);
     			attr_dev(div0, "class", "card__header");
-    			add_location(div0, file$1p, 275, 4, 4705);
+    			add_location(div0, file$1p, 281, 4, 4791);
     			attr_dev(div1, "class", "card-body");
-    			add_location(div1, file$1p, 280, 4, 4877);
+    			add_location(div1, file$1p, 286, 4, 4963);
     			attr_dev(div2, "class", "card__table");
     			set_style(div2, "width", "100%");
-    			add_location(div2, file$1p, 270, 2, 4581);
-    			add_location(main, file$1p, 224, 0, 3876);
+    			add_location(div2, file$1p, 276, 2, 4667);
+    			add_location(main, file$1p, 230, 0, 3962);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -57377,7 +57302,8 @@ var routify_app = (function () {
     			data: "created_at",
     			type: "text",
     			width: 200
-    		}
+    		},
+    		{ data: "action", type: "html", width: 200 }
     	];
 
     	let colHeaders = [
@@ -57402,7 +57328,8 @@ var routify_app = (function () {
     		"NYSC",
     		"EC Remark",
     		"VPE Approval",
-    		"Date"
+    		"Date",
+    		"Action"
     	];
 
     	onMount(() => {
@@ -57933,11 +57860,11 @@ var routify_app = (function () {
     			create_component(button.$$.fragment);
     			attr_dev(a, "href", a_href_value = "#");
     			attr_dev(a, "class", "move");
-    			add_location(a, file$1q, 146, 12, 2948);
-    			add_location(br0, file$1q, 147, 12, 3008);
-    			add_location(br1, file$1q, 148, 12, 3027);
-    			add_location(br2, file$1q, 149, 12, 3046);
-    			add_location(form, file$1q, 133, 10, 2535);
+    			add_location(a, file$1q, 146, 12, 2936);
+    			add_location(br0, file$1q, 147, 12, 2996);
+    			add_location(br1, file$1q, 148, 12, 3015);
+    			add_location(br2, file$1q, 149, 12, 3034);
+    			add_location(form, file$1q, 133, 10, 2523);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, form, anchor);
@@ -58087,19 +58014,19 @@ var routify_app = (function () {
     			br4 = element("br");
     			t13 = space();
     			br5 = element("br");
-    			add_location(br0, file$1q, 114, 8, 2095);
-    			add_location(span0, file$1q, 117, 14, 2118);
-    			add_location(h2, file$1q, 117, 8, 2112);
+    			add_location(br0, file$1q, 114, 8, 2083);
+    			add_location(span0, file$1q, 117, 14, 2106);
+    			add_location(h2, file$1q, 117, 8, 2100);
     			attr_dev(p, "class", "header-text");
-    			add_location(p, file$1q, 119, 8, 2157);
-    			add_location(span1, file$1q, 120, 8, 2215);
-    			add_location(br1, file$1q, 121, 8, 2266);
-    			add_location(br2, file$1q, 122, 8, 2281);
-    			add_location(br3, file$1q, 156, 8, 3152);
-    			add_location(br4, file$1q, 157, 8, 3167);
-    			add_location(br5, file$1q, 158, 8, 3182);
+    			add_location(p, file$1q, 119, 8, 2145);
+    			add_location(span1, file$1q, 120, 8, 2203);
+    			add_location(br1, file$1q, 121, 8, 2254);
+    			add_location(br2, file$1q, 122, 8, 2269);
+    			add_location(br3, file$1q, 156, 8, 3140);
+    			add_location(br4, file$1q, 157, 8, 3155);
+    			add_location(br5, file$1q, 158, 8, 3170);
     			attr_dev(div, "class", "authentication");
-    			add_location(div, file$1q, 112, 6, 2057);
+    			add_location(div, file$1q, 112, 6, 2045);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -58293,9 +58220,9 @@ var routify_app = (function () {
     			div = element("div");
     			t2 = space();
     			create_component(row.$$.fragment);
-    			add_location(style, file$1q, 58, 2, 1145);
+    			add_location(style, file$1q, 58, 2, 1133);
     			attr_dev(div, "class", "overlay");
-    			add_location(div, file$1q, 108, 2, 1973);
+    			add_location(div, file$1q, 108, 2, 1961);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, style, anchor);
@@ -58409,11 +58336,12 @@ var routify_app = (function () {
     	let errors, success;
 
     	onMount(() => {
-    		
-    	}); // const isLoggedIn = __deserialize('currentUser')
-    	// if (isLoggedIn) {
-    	//   return $goto('/app/dashboard')
-    	// }
+    		const isLoggedIn = __deserialize("currentUser");
+
+    		if (isLoggedIn) {
+    			return $goto("/app/dashboard");
+    		}
+    	});
 
     	const login = e => {
     		e.preventDefault();
@@ -58512,7 +58440,7 @@ var routify_app = (function () {
     		});
     	}
     }
-    Pages.$compile = {"vars":[{"name":"Button","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"Grid","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"Row","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"Column","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"FluidForm","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"TextInput","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"ToastNotification","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"goto","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":true},{"name":"onMount","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"LOG_USER_IN","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"__serialize","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"__deserialize","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"email","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":true,"referenced":true,"writable":true,"referenced_from_script":true},{"name":"password","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":true,"referenced":true,"writable":true,"referenced_from_script":true},{"name":"errors","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":true,"referenced":true,"writable":true,"referenced_from_script":true},{"name":"success","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":true,"referenced_from_script":false},{"name":"login","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"$goto","export_name":null,"injected":true,"module":false,"mutated":true,"reassigned":false,"referenced":false,"writable":true,"referenced_from_script":false}]};
+    Pages.$compile = {"vars":[{"name":"Button","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"Grid","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"Row","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"Column","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"FluidForm","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"TextInput","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"ToastNotification","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"goto","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":true},{"name":"onMount","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"LOG_USER_IN","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"__serialize","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"__deserialize","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"email","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":true,"referenced":true,"writable":true,"referenced_from_script":true},{"name":"password","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":true,"referenced":true,"writable":true,"referenced_from_script":true},{"name":"errors","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":true,"referenced":true,"writable":true,"referenced_from_script":true},{"name":"success","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":true,"referenced_from_script":false},{"name":"login","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"$goto","export_name":null,"injected":true,"module":false,"mutated":true,"reassigned":false,"referenced":false,"writable":true,"referenced_from_script":false}]};
 
     var index$7 = /*#__PURE__*/Object.freeze({
         __proto__: null,
