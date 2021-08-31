@@ -96,7 +96,7 @@
   }
 
   function changeZone(zone) {
-    Pace.restart()
+    //Pace.restart()
     let checkZone = JSON.parse(window.localStorage.getItem('selectedZone'))
     SET_ZONE.set(selectedZone)
     if (checkZone) {

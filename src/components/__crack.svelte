@@ -135,7 +135,7 @@
   }
 
   function changeTerm(term) {
-    Pace.restart()
+   // Pace.restart()
     let checkTerm = __deserialize('selectedTerm')
 
     console.log('Change Term :', term)
@@ -155,7 +155,7 @@
   }
 
   function changeZone(zone) {
-    Pace.restart()
+   // Pace.restart()
     let checkZone = __deserialize('selectedZone')
     SET_ZONE.set(selectedZone)
     if (checkZone) {

@@ -49108,9 +49108,9 @@ var routify_app = (function () {
     			span = element("span");
     			span.textContent = "Super User";
     			set_style(span, "font-size", "16px");
-    			add_location(span, file$1h, 125, 12, 2868);
+    			add_location(span, file$1h, 125, 12, 2870);
     			set_style(h3, "margin-bottom", "1.5rem");
-    			add_location(h3, file$1h, 123, 10, 2795);
+    			add_location(h3, file$1h, 123, 10, 2797);
     		},
     		m: function mount(target, anchor) {
     			mount_component(breadcrumb, target, anchor);
@@ -49451,16 +49451,16 @@ var routify_app = (function () {
     			br = element("br");
     			t4 = space();
     			img = element("img");
-    			add_location(style, file$1h, 154, 8, 3663);
-    			add_location(h4, file$1h, 164, 10, 3860);
-    			add_location(br, file$1h, 165, 10, 3912);
+    			add_location(style, file$1h, 154, 8, 3665);
+    			add_location(h4, file$1h, 164, 10, 3862);
+    			add_location(br, file$1h, 165, 10, 3914);
     			attr_dev(img, "class", "img-responsive");
     			if (img.src !== (img_src_value = "/img/select.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "select");
     			set_style(img, "height", "40vh");
-    			add_location(img, file$1h, 166, 10, 3929);
+    			add_location(img, file$1h, 166, 10, 3931);
     			attr_dev(div, "class", "select");
-    			add_location(div, file$1h, 163, 8, 3829);
+    			add_location(div, file$1h, 163, 8, 3831);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, style, anchor);
@@ -49891,8 +49891,9 @@ var routify_app = (function () {
     	}
 
     	function changeZone(zone) {
-    		Pace.restart();
+    		//Pace.restart()
     		let checkZone = JSON.parse(window.localStorage.getItem("selectedZone"));
+
     		SET_ZONE.set(selectedZone);
 
     		if (checkZone) {
