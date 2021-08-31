@@ -1,17 +1,8 @@
 <script>
   import {
-    Button,
-    Breadcrumb,
-    BreadcrumbItem,
-    Grid,
     Row,
     Column,
     Loading,
-    Tabs,
-    TabContent,
-    Tab,
-    Select,
-    SelectItem,
     AspectRatio,
     Tile,
   } from 'carbon-components-svelte'
@@ -25,12 +16,6 @@
   import { ALL_STAT } from '../../../actions/all'
 
   import { SET_ZONE, STORAGE_TOKEN } from '../../../store.js'
-
-  import numeral from 'numeral'
-  
-  import { goto, params, url } from '@sveltech/routify'
-
-  import { __serialize, __deserialize } from '../../../helpers/index.js'
 
   let selectedZone =  JSON.parse(window.localStorage.getItem('selectedZone')) ? JSON.parse(window.localStorage.getItem('selectedZone')).zone : 0;
   $: selectedZone
@@ -54,7 +39,6 @@
     user = userData
     STORAGE_TOKEN.subscribe((value) => (token = value))
     SET_ZONE.subscribe((value) => (zones = value))
-    
   })
 
   function getDashboard() {
@@ -92,7 +76,6 @@
 
 {#if isLoading && dashboard === null}
   <Loading style="height: 100vh;" />
-  <!-- <p></p> -->
 {:else}
 
   <Row style="margin: 50px 0;">

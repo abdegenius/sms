@@ -1,17 +1,8 @@
 <script>
   import {
-    Button,
-    Breadcrumb,
-    BreadcrumbItem,
-    Grid,
     Row,
     Column,
     Loading,
-    Tabs,
-    TabContent,
-    Tab,
-    Select,
-    SelectItem,
     AspectRatio,
     Tile,
   } from 'carbon-components-svelte'
@@ -24,13 +15,7 @@
 
   import { SET_ZONE, STORAGE_TOKEN } from '../../store.js'
 
-  import numeral from 'numeral'
-
-  import { goto, params, url } from '@sveltech/routify'
-
-  import { __serialize, __deserialize } from '../../helpers/index.js'
-
-  let selectedZone =  __deserialize('selectedZone') ? __deserialize('selectedZone').zone : 0;
+  let selectedZone =  window.localStorage.getItem('selectedZone') ? JSON.parse(window.localStorage.getItem('selectedZone')).zone : 0;
   $: selectedZone
   $: if (selectedZone >= 0) {
     STORAGE_TOKEN.subscribe((value) => (token = value))
@@ -48,7 +33,7 @@
 
 
   onMount(() => {
-    const userData = __deserialize('currentUser')
+    const userData = JSON.parse(window.localStorage.getItem('currentUser'))
     user = userData
     STORAGE_TOKEN.subscribe((value) => (token = value))
     SET_ZONE.subscribe((value) => (zones = value))
@@ -57,7 +42,7 @@
   })
 
   function getDashboard() {
-    let getZone = __deserialize('selectedZone')
+    let getZone = JSON.parse(window.localStorage.getItem('selectedZone'))
     dashboard = null
     const callback = (res) => {
       dashboard = res[0]
@@ -72,7 +57,7 @@
   }
 
   function getAllStat() {
-    let getZone = __deserialize('selectedZone')
+    let getZone = JSON.parse(window.localStorage.getItem('selectedZone'))
     stat = null
     const callback = (res) => {
       stat = res
