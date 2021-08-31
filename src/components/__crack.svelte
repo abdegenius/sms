@@ -21,7 +21,6 @@
   } from '../../store.js'
 
   import { TERMS, ZONES } from '../../actions/others/index.js'
-
   import { __serialize, __deserialize } from '../../helpers/index.js'
 
   let token = null
