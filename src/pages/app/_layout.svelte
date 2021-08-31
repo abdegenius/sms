@@ -27,7 +27,16 @@
   let zone = []
   let zones = []
   let userType = null
-  let selectedZone =  __deserialize('selectedZone') ? __deserialize('selectedZone').zone : 0;
+
+  let selectedZone =  '';
+  let savedZone = JSON.parse(window.localStorage.getItem('selectedZone'))
+  
+  if(savedZone) { 
+    selectedZone = savedZone.zone
+  }
+  else { 
+    selectedZone = 0 
+  }
 
   $: selectedZone
   $: if (selectedZone >= 0) {
@@ -35,18 +44,19 @@
   }
 
   onMount(() => {
-    // const __tokenLocalStorage = __deserialize('token')
-    // const __userType = __deserialize('currentUser')
+    let tokenLocalStorage0 = JSON.parse(window.localStorage.getItem('token'))
+    let userType0 = JSON.parse(window.localStorage.getItem('currentUser'))
 
-    // //checkuser type
-    // userType = __userType ? __userType.user.zone : null
-    // if (!__tokenLocalStorage) {
-    //   return window.location.replace('/')
-    // }
-    // token = __tokenLocalStorage.token
-    // STORAGE_TOKEN.set(token)
-    // SET_USER_TYPE.set(__userType.user.zone)
-    
+    //checkuser type
+    userType = Object.keys(userType0).length > 0 ? userType0.user.zone : null
+    if(tokenLocalStorage0) {
+      token = tokenLocalStorage0.token
+      STORAGE_TOKEN.set(token)
+      SET_USER_TYPE.set(userType)
+    }
+    else{
+      return window.location.replace('/')
+    }    
     getZones()
     __loadCheckers()
   })
@@ -76,7 +86,7 @@
   }
 
   function __loadCheckers() {
-    let checkZone = __deserialize('selectedZone')
+    let checkZone = JSON.parse(window.localStorage.getItem('selectedZone'))
 
     if (checkZone) {
       let zone_id = checkZone.zone
@@ -87,15 +97,15 @@
 
   function changeZone(zone) {
     Pace.restart()
-    let checkZone = __deserialize('selectedZone')
+    let checkZone = JSON.parse(window.localStorage.getItem('selectedZone'))
     SET_ZONE.set(selectedZone)
     if (checkZone) {
       localStorage.removeItem('selectedZone')
-      localStorage.selectedZone = __serialize({
+      localStorage.selectedZone = JSON.stringify({
         zone,
       })
     } else {
-      localStorage.selectedZone = __serialize({
+      localStorage.selectedZone = JSON.stringify({
         zone,
       })
     }

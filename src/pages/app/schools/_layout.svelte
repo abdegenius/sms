@@ -47,7 +47,7 @@
   })
 
   function getSchools() {
-    let getZone = __deserialize('selectedZone')
+    let getZone = JSON.parse(window.localStorage.getItem('selectedZone'))
     const callback = (res) => {
       if (schools === null) {
         schools = res
@@ -71,7 +71,7 @@
   $: if (zones) {
     isLoading = true
     schools = null
-    let getZone = __deserialize('selectedZone')
+    let getZone = JSON.parse(window.localStorage.getItem('selectedZone'))
     setTimeout(() => {
       if (getZone.zone === zones) {
         getSchools()
@@ -81,7 +81,7 @@
   $: if (zones.zone_id != 'undefined') {
     isLoading = true
     schools = null
-    let getZone = __deserialize('selectedZone')
+    let getZone = JSON.parse(window.localStorage.getItem('selectedZone'))
     setTimeout(() => {
       if (getZone.zone === zones.zone_id) {
         getSchools()
