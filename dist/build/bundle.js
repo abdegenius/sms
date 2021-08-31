@@ -51150,11 +51150,11 @@ var routify_app = (function () {
     			t2 = space();
     			p1 = element("p");
     			t3 = text(t3_value);
-    			add_location(br, file$1i, 101, 10, 2215);
-    			add_location(p0, file$1i, 102, 10, 2232);
+    			add_location(br, file$1i, 101, 10, 2345);
+    			add_location(p0, file$1i, 102, 10, 2362);
     			set_style(p1, "font-size", "22px");
     			set_style(p1, "margin-top", "10px");
-    			add_location(p1, file$1i, 103, 10, 2269);
+    			add_location(p1, file$1i, 103, 10, 2399);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, br, anchor);
@@ -51322,11 +51322,11 @@ var routify_app = (function () {
     			t2 = space();
     			p1 = element("p");
     			t3 = text(t3_value);
-    			add_location(br, file$1i, 110, 10, 2534);
-    			add_location(p0, file$1i, 111, 10, 2551);
+    			add_location(br, file$1i, 110, 10, 2664);
+    			add_location(p0, file$1i, 111, 10, 2681);
     			set_style(p1, "font-size", "22px");
     			set_style(p1, "margin-top", "10px");
-    			add_location(p1, file$1i, 112, 10, 2592);
+    			add_location(p1, file$1i, 112, 10, 2722);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, br, anchor);
@@ -51492,11 +51492,11 @@ var routify_app = (function () {
     			t2 = space();
     			p1 = element("p");
     			t3 = text(t3_value);
-    			add_location(br, file$1i, 119, 10, 2861);
-    			add_location(p0, file$1i, 120, 10, 2878);
+    			add_location(br, file$1i, 119, 10, 2991);
+    			add_location(p0, file$1i, 120, 10, 3008);
     			set_style(p1, "font-size", "22px");
     			set_style(p1, "margin-top", "10px");
-    			add_location(p1, file$1i, 121, 10, 2917);
+    			add_location(p1, file$1i, 121, 10, 3047);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, br, anchor);
@@ -51660,11 +51660,11 @@ var routify_app = (function () {
     			t2 = space();
     			p1 = element("p");
     			t3 = text(t3_value);
-    			add_location(br, file$1i, 128, 10, 3184);
-    			add_location(p0, file$1i, 129, 10, 3201);
+    			add_location(br, file$1i, 128, 10, 3314);
+    			add_location(p0, file$1i, 129, 10, 3331);
     			set_style(p1, "font-size", "22px");
     			set_style(p1, "margin-top", "10px");
-    			add_location(p1, file$1i, 130, 10, 3240);
+    			add_location(p1, file$1i, 130, 10, 3370);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, br, anchor);
@@ -52020,8 +52020,8 @@ var routify_app = (function () {
     }
 
     function instance$1o($$self, $$props, $$invalidate) {
-    	let selectedZone = __deserialize("selectedZone")
-    	? __deserialize("selectedZone").zone
+    	let selectedZone = JSON.parse(window.localStorage.getItem("selectedZone"))
+    	? JSON.parse(window.localStorage.getItem("selectedZone")).zone
     	: 0;
 
     	let dashboard = null;
@@ -52032,14 +52032,14 @@ var routify_app = (function () {
     	let stat = null;
 
     	onMount(() => {
-    		const userData = __deserialize("currentUser");
+    		const userData = JSON.parse(window.localStorage.getItem("currentUser"));
     		user = userData;
     		STORAGE_TOKEN.subscribe(value => token = value);
     		SET_ZONE.subscribe(value => zones = value);
     	});
 
     	function getDashboard() {
-    		let getZone = __deserialize("selectedZone");
+    		let getZone = JSON.parse(window.localStorage.getItem("selectedZone"));
     		$$invalidate(0, dashboard = null);
 
     		const callback = res => {
@@ -52061,7 +52061,7 @@ var routify_app = (function () {
     	}
 
     	function getAllStat() {
-    		let getZone = __deserialize("selectedZone");
+    		let getZone = JSON.parse(window.localStorage.getItem("selectedZone"));
     		$$invalidate(2, stat = null);
 
     		const callback = res => {
@@ -52168,7 +52168,7 @@ var routify_app = (function () {
     		});
     	}
     }
-    Dashboard.$compile = {"vars":[{"name":"Button","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"Breadcrumb","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"BreadcrumbItem","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"Grid","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"Row","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"Column","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"Loading","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"Tabs","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"TabContent","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"Tab","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"Select","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"SelectItem","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"AspectRatio","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"Tile","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"getContext","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"onMount","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"DASHBOARD","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"ALL_STAT","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"SET_ZONE","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"STORAGE_TOKEN","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"numeral","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"goto","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"params","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"url","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"__serialize","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"__deserialize","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"selectedZone","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":true,"referenced_from_script":true},{"name":"dashboard","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":true,"referenced":true,"writable":true,"referenced_from_script":true},{"name":"isLoading","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":true,"referenced":true,"writable":true,"referenced_from_script":true},{"name":"token","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":true,"referenced":false,"writable":true,"referenced_from_script":true},{"name":"zones","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":true,"referenced":false,"writable":true,"referenced_from_script":true},{"name":"user","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":true,"referenced":false,"writable":true,"referenced_from_script":true},{"name":"stat","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":true,"referenced":true,"writable":true,"referenced_from_script":true},{"name":"getDashboard","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"getAllStat","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"carbon_theme","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true}]};
+    Dashboard.$compile = {"vars":[{"name":"Button","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"Breadcrumb","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"BreadcrumbItem","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"Grid","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"Row","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"Column","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"Loading","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"Tabs","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"TabContent","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"Tab","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"Select","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"SelectItem","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"AspectRatio","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"Tile","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":true,"writable":false,"referenced_from_script":false},{"name":"getContext","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"onMount","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"DASHBOARD","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"ALL_STAT","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"SET_ZONE","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"STORAGE_TOKEN","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"numeral","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"goto","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"params","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"url","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"__serialize","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"__deserialize","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":false},{"name":"selectedZone","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":true,"referenced_from_script":true},{"name":"dashboard","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":true,"referenced":true,"writable":true,"referenced_from_script":true},{"name":"isLoading","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":true,"referenced":true,"writable":true,"referenced_from_script":true},{"name":"token","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":true,"referenced":false,"writable":true,"referenced_from_script":true},{"name":"zones","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":true,"referenced":false,"writable":true,"referenced_from_script":true},{"name":"user","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":true,"referenced":false,"writable":true,"referenced_from_script":true},{"name":"stat","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":true,"referenced":true,"writable":true,"referenced_from_script":true},{"name":"getDashboard","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"getAllStat","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true},{"name":"carbon_theme","export_name":null,"injected":false,"module":false,"mutated":false,"reassigned":false,"referenced":false,"writable":false,"referenced_from_script":true}]};
 
     var index = /*#__PURE__*/Object.freeze({
         __proto__: null,
